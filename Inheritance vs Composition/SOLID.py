@@ -1,3 +1,5 @@
+from abc import ABC ,abstractmethod
+import math
 # class Book:
 #     def __init__(self,title:str,author:str,content:str):
 #         self.title=title
@@ -48,3 +50,29 @@
         
 # order=Order(["a","s","d","f"],522.36) 
 # InvoicePrinter.print_invoice(order)      
+
+
+
+class Shape(ABC):
+    @abstractmethod
+    def area():
+        pass
+class Circle(Shape):
+    def __init__(self,r):
+        self.r=r
+    def area(self):
+        return math.pi*(self.r**2)   
+class Square(Shape):
+    def __init__(self,a):
+        self.a=a
+    def area(self):
+        return self.a*self.a
+class Rectangle(Shape):
+    def __init__(self,l,w):
+        self.l=l
+        self.w=w
+    def area(self):
+        return self.l*self.w   
+
+r=Rectangle(4,6)
+print(r.area())        
